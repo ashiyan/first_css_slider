@@ -1,0 +1,262 @@
+.slider-container,
+.slider,
+.img {
+  width: 640px;
+  height: 300px;
+}
+.slider-container {
+  margin: 50px auto 0;
+}
+input {
+  display: none;
+}
+.slider {
+  position: relative;
+  background-color: #000;
+  border: 8px solid #fff;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+  border-radius: 5px;
+  overflow: hidden;
+}
+.img {
+  position: absolute;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-perspective: 500px;
+  perspective: 500px;
+}
+.frag {
+  position: absolute;
+  width: 100%;
+  height: 33.333333333333336px;
+  z-index: 0;
+  opacity: 0;
+  -webkit-transform-origin: top bottom;
+  transform-origin: top bottom;
+  -webkit-transform: rotateX(180deg) scale(1.2);
+  transform: rotateX(180deg) scale(1.2);
+}
+.img1 .frag {
+  background: url("../img/slide-01.jpg") no-repeat;
+  background-size: cover;
+}
+.img2 .frag {
+  background: url("../img/slide-02.jpg") no-repeat;
+  background-size: cover;
+}
+.img3 .frag {
+  background: url("../img/slide-03.jpg") no-repeat;
+  background-size: cover;
+}
+.img4 .frag {
+  background: url("../img/slide-04.jpg") no-repeat;
+  background-size: cover;
+}
+.img5 .frag {
+  background: url("../img/slide-05.jpg") no-repeat;
+  background-size: cover;
+}
+.img .frag1 {
+  top: 0px;
+  background-position: 0 0px;
+  -webkit-transition: all 500ms 0s;
+  transition: all 500ms 0s;
+}
+.img .frag2 {
+  top: 33.333333333333336px;
+  background-position: 0 -33.333333333333336px;
+  -webkit-transition: all 500ms 0.083333333333333s;
+  transition: all 500ms 0.083333333333333s;
+}
+.img .frag3 {
+  top: 66.66666666666667px;
+  background-position: 0 -66.66666666666667px;
+  -webkit-transition: all 500ms 0.166666666666667s;
+  transition: all 500ms 0.166666666666667s;
+}
+.img .frag4 {
+  top: 100px;
+  background-position: 0 -100px;
+  -webkit-transition: all 500ms 0.25s;
+  transition: all 500ms 0.25s;
+}
+.img .frag5 {
+  top: 133.33333333333334px;
+  background-position: 0 -133.33333333333334px;
+  -webkit-transition: all 500ms 0.333333333333333s;
+  transition: all 500ms 0.333333333333333s;
+}
+.img .frag6 {
+  top: 166.66666666666669px;
+  background-position: 0 -166.66666666666669px;
+  -webkit-transition: all 500ms 0.416666666666667s;
+  transition: all 500ms 0.416666666666667s;
+}
+.img .frag7 {
+  top: 200px;
+  background-position: 0 -200px;
+  -webkit-transition: all 500ms 0.5s;
+  transition: all 500ms 0.5s;
+}
+.img .frag8 {
+  top: 233.33333333333334px;
+  background-position: 0 -233.33333333333334px;
+  -webkit-transition: all 500ms 0.583333333333333s;
+  transition: all 500ms 0.583333333333333s;
+}
+.img .frag9 {
+  top: 266.6666666666667px;
+  background-position: 0 -266.6666666666667px;
+  -webkit-transition: all 500ms 0.666666666666667s;
+  transition: all 500ms 0.666666666666667s;
+}
+.controls {
+  position: absolute;
+  z-index: 10;
+  width: 200px;
+  height: 10px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  left: 220px;
+  top: 280px;
+}
+.controls label {
+  width: 30px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: #fff;
+  opacity: 0.3;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+  cursor: pointer;
+}
+.controls label:hover {
+  opacity: 1;
+}
+.side-controls label {
+  position: absolute;
+  display: block;
+  top: 135px;
+  border-top: 30px solid transparent;
+  border-bottom: 30px solid transparent;
+  opacity: 0.3;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+  cursor: pointer;
+}
+.side-controls label:hover {
+  opacity: 1;
+}
+#slide5:checked ~ .slider .side-controls label:nth-of-type(4) {
+  left: 20px;
+  border-right: 40px solid #fff;
+}
+#slide4:checked ~ .slider .side-controls label:nth-of-type(3) {
+  left: 20px;
+  border-right: 40px solid #fff;
+}
+#slide3:checked ~ .slider .side-controls label:nth-of-type(2) {
+  left: 20px;
+  border-right: 40px solid #fff;
+}
+#slide2:checked ~ .slider .side-controls label:nth-of-type(1) {
+  left: 20px;
+  border-right: 40px solid #fff;
+}
+#slide1:checked ~ .slider .side-controls label:nth-of-type(5) {
+  left: 20px;
+  border-right: 40px solid #fff;
+}
+#slide1:checked ~ .slider .side-controls label:nth-of-type(2) {
+  right: 20px;
+  border-left: 40px solid #fff;
+}
+#slide2:checked ~ .slider .side-controls label:nth-of-type(3) {
+  right: 20px;
+  border-left: 40px solid #fff;
+}
+#slide3:checked ~ .slider .side-controls label:nth-of-type(4) {
+  right: 20px;
+  border-left: 40px solid #fff;
+}
+#slide4:checked ~ .slider .side-controls label:nth-of-type(5) {
+  right: 20px;
+  border-left: 40px solid #fff;
+}
+#slide5:checked ~ .slider .side-controls label:nth-of-type(1) {
+  right: 20px;
+  border-left: 40px solid #fff;
+}
+#slide0:checked ~ .slider .img0 .frag {
+  z-index: 1;
+  opacity: 1;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-filter: saturate(1) blur(0) brightness(1) contrast(1);
+}
+#slide0:checked ~ .slider .controls label:nth-of-type(0) {
+  opacity: 0.8;
+}
+#slide1:checked ~ .slider .img1 .frag {
+  z-index: 1;
+  opacity: 1;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-filter: saturate(1) blur(0) brightness(1) contrast(1);
+}
+#slide1:checked ~ .slider .controls label:nth-of-type(1) {
+  opacity: 0.8;
+}
+#slide2:checked ~ .slider .img2 .frag {
+  z-index: 1;
+  opacity: 1;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-filter: saturate(1) blur(0) brightness(1) contrast(1);
+}
+#slide2:checked ~ .slider .controls label:nth-of-type(2) {
+  opacity: 0.8;
+}
+#slide3:checked ~ .slider .img3 .frag {
+  z-index: 1;
+  opacity: 1;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-filter: saturate(1) blur(0) brightness(1) contrast(1);
+}
+#slide3:checked ~ .slider .controls label:nth-of-type(3) {
+  opacity: 0.8;
+}
+#slide4:checked ~ .slider .img4 .frag {
+  z-index: 1;
+  opacity: 1;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-filter: saturate(1) blur(0) brightness(1) contrast(1);
+}
+#slide4:checked ~ .slider .controls label:nth-of-type(4) {
+  opacity: 0.8;
+}
+#slide5:checked ~ .slider .img5 .frag {
+  z-index: 1;
+  opacity: 1;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-filter: saturate(1) blur(0) brightness(1) contrast(1);
+}
+#slide5:checked ~ .slider .controls label:nth-of-type(5) {
+  opacity: 0.8;
+}

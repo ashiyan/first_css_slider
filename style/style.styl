@@ -1,0 +1,131 @@
+// Примечания:
+// Все картинки должны быть одинакового размера.
+
+// Переменные
+images-count = 5
+main-width = 640px
+main-height = 300px
+
+ // Функции
+size(new-width = main-width, new-height = main-height)
+	width new-width
+	height new-height
+
+ /////////////////////////////////////////////////////////////////////////
+
+.slider-container
+.slider
+.img
+	size()
+
+ // START База и изображения
+.slider-container
+	margin 50px auto 0
+	
+input
+	display none
+
+.slider
+	position relative
+	background-color black
+	border 8px solid white
+	box-shadow 0 5px 20px rgba(black, .5)
+	border-radius 5px
+	overflow hidden
+	
+.img
+	position absolute
+	display flex
+	flex-direction column
+	perspective 500px
+			
+.frag
+	position absolute
+	size(100%, main-height/9)
+	z-index 0
+	opacity 0
+	transform-origin top bottom
+	transform rotateX(180deg) scale(1.2)
+
+for i in (1..images-count)
+	.img{i} .frag
+		background url("../img/slide-0" + i + ".jpg") no-repeat
+		background-size cover
+
+for i in (0..8)
+	.img .frag{i+1}
+		top (i*(main-height/9))px
+		background-position 0 (-(i*(main-height/9)))px
+		transition all 500ms (i/12)s
+ // END База и изображения
+
+ // START Нижняя панель переключателей
+.controls
+	position absolute
+	z-index 10
+	width 200px
+	height 10px
+	display flex
+	justify-content space-between
+	left ((main-width - @width)/2)px
+	top (main-height - @height*2)px
+	& label
+		width 30px
+		height 10px
+		border-radius 5px
+		background-color white
+		opacity 0.3
+		transition opacity 0.5s
+		cursor pointer
+		&:hover
+			opacity 1
+ // END Нижняя панель переключателей
+
+ // START Боковые переключатели
+.side-controls
+	label
+		position absolute
+		display block
+		top ((main-height)/2 - 15)px
+		border-top 30px solid transparent
+		border-bottom 30px solid transparent
+		opacity 0.3
+		transition opacity 0.5s
+		cursor pointer
+		&:hover
+			opacity 1
+
+for i in (images-count..1)
+	#slide{i}:checked ~ .slider .side-controls label
+		if i != 1
+			&:nth-of-type({i - 1})
+				left 20px
+				border-right 40px solid white
+		else
+			&:nth-of-type({images-count})
+				left 20px
+				border-right 40px solid white
+
+for i in (1..images-count)
+	#slide{i}:checked ~ .slider .side-controls label
+		if i != images-count
+			&:nth-of-type({i + 1})
+				right 20px
+				border-left 40px solid white
+		else
+			&:nth-of-type(1)
+				right 20px
+				border-left 40px solid white
+// END Боковые переключатели
+
+ // START Процесс переключения
+for i in (0..images-count)
+	#slide{i}:checked
+		& ~ .slider .img{i} .frag
+			z-index 1
+			opacity 1
+			transform scale(1)
+			-webkit-filter: saturate(1) blur(0) brightness(1) contrast(1);
+		& ~ .slider .controls label:nth-of-type({i})
+			opacity 0.8
+// END Процесс переключения
